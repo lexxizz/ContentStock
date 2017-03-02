@@ -14,9 +14,9 @@
 
 <div id="layout__main"></div>
 
-<script type="text/javascript" src="{!! asset('js/bootstrap.min.js') !!}"></script>
-<script type="text/javascript" src="{!! asset('js/ekko-lightbox.min.js') !!}"></script>
 <script type="text/javascript" src="{!! asset('js/jquery.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('js/ekko-lightbox.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('js/bootstrap.min.js') !!}"></script>
 <script type="text/javascript" src="{!! asset('js/jquery.singlePageNav.min.js') !!}"></script>
 <script src="http://stock.lc:3001/js/bundle.js"></script>
 

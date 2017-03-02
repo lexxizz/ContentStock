@@ -1,5 +1,6 @@
 import React from 'react';
 import {Router, Route, Link} from 'react-router';
+import PopupLogin from './PopupLogin';
 
 class MainMenu extends React.Component{
     
@@ -16,14 +17,14 @@ class MainMenu extends React.Component{
                             <Link to={'/gallery'} className="nav-link" href="#">Галерея</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Войти</a>
+                            <a href="#" className="nav-link" data-toggle="modal" data-target="#login-modal">Войти</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Зарегистрироваться</a>
+                            <a href="#" className="nav-link" data-toggle="modal" data-target="#login-modal">Зарегистрироваться</a>
                         </li>
                     </ul>
                 </nav>
-
+                <PopupLogin />
             </div>
         )
     }

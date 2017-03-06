@@ -1,5 +1,6 @@
 import React from 'react';
 import {Router, Route} from 'react-router';
+import Form from './Form';
 
 class PopupLogin extends React.Component {
 
@@ -9,11 +10,11 @@ class PopupLogin extends React.Component {
                 <div className="modal-dialog">
                     <div className="loginmodal-container">
                         <h1>Login to Your Account</h1><br />
-                        <form>
-                            <input type="text" name="user" placeholder="Username"/>
-                                <input type="password" name="pass" placeholder="Password"/>
+                        <Form action="/ajax/login" method="post" callback={((response) => {this._response(response)})} error_cb={((response) => {console.log('ERROR')}).bind(this)}>
+                            <input type="text" name="email" placeholder="Username"/>
+                                <input type="password" name="password" placeholder="Password"/>
                                     <input type="submit" name="login" className="login loginmodal-submit" value="Login"/>
-                        </form>
+                        </Form>
 
                         <div className="login-help">
                             <a href="#">Register</a> - <a href="#">Forgot Password</a>
@@ -23,5 +24,10 @@ class PopupLogin extends React.Component {
             </div>
         )
     }
+    
+    _response(response) {
+        console.log(response);
+    }
+    
 }
 export default PopupLogin;

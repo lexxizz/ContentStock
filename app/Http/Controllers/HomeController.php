@@ -20,13 +20,23 @@ class HomeController extends Controller
 
 
     /**
+     * @return mixed
+     */
+    public function login(Request $request) {
+
+        if (Auth::attempt($request->request->all())) {
+            return response()->json([
+                'status' => 'OK'
+            ]);
+        }
+    }
+
+    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //if (Auth::attempt(['email' => 'test2', 'password' => 'test'])) {
-            return view('home');
-        //}
+        return view('home');
     }
 }

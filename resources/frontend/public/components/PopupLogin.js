@@ -24,9 +24,10 @@ class PopupLogin extends React.Component {
             </div>
         )
     }
+
     
     _response(response) {
-        console.log(response);
+        $('#login-modal').modal('hide');
     }
     
 }

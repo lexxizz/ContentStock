@@ -29,6 +29,19 @@ class HomeController extends Controller
                 'status' => 'OK'
             ]);
         }
+        return response()->json([
+            'status' => 'ERROR'
+        ]);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function logout() {
+        Auth::logout();
+        return response()->json([
+            'status' => 'OK'
+        ]);
     }
 
     /**
@@ -37,6 +50,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return view('home');
+
+        return view('home', ['user' => Auth::user()]);
     }
 }

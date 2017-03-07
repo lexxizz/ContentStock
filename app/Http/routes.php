@@ -20,3 +20,4 @@
 Route::get('/', 'HomeController@index');
 
 Route::post('/ajax/login', 'HomeController@login');
+Route::post('/ajax/logout', 'HomeController@logout');

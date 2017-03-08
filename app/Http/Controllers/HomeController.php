@@ -18,32 +18,6 @@ class HomeController extends Controller
 //        $this->middleware('auth');
 //    }
 
-
-    /**
-     * @return mixed
-     */
-    public function login(Request $request) {
-
-        if (Auth::attempt($request->request->all())) {
-            return response()->json([
-                'status' => 'OK'
-            ]);
-        }
-        return response()->json([
-            'status' => 'ERROR'
-        ]);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function logout() {
-        Auth::logout();
-        return response()->json([
-            'status' => 'OK'
-        ]);
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -51,6 +25,6 @@ class HomeController extends Controller
      */
     public function index() {
 
-        return view('home', ['user' => Auth::user()]);
+        return view('home');
     }
 }

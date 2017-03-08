@@ -19,5 +19,6 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::post('/ajax/login', 'HomeController@login');
-Route::post('/ajax/logout', 'HomeController@logout');
+Route::post('/ajax/login', 'UserController@login');
+Route::post('/ajax/logout', 'UserController@logout');
+Route::get('/ajax/user/get', 'UserController@getUser');

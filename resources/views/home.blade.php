@@ -12,7 +12,6 @@
     <link href="{!! asset('css/style.css') !!}" media="all" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="user" data-user="{{$user}}" ></div>
 
 <div id="layout__main"></div>
 

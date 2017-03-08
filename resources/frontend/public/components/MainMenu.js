@@ -2,9 +2,29 @@ import React from 'react';
 import {Router, Route, Link} from 'react-router';
 import PopupLogin from './PopupLogin';
 import Request from 'napishem-frontend-utils/modules/Request';
+import UserActions from '../actions/User';
+import UserStore from '../stores/User';
 
 class MainMenu extends React.Component{
-    
+
+    constructor(props) {
+
+        super(props);
+
+        this.__changeEvent = this._onChange.bind(this);
+
+        this.state = {};
+    }
+
+    componentDidMount() {
+        UserStore.addChangeListener(this.__changeEvent);
+        UserActions.getUser();
+    }
+
+    _onChange() {
+        this.setState(UserStore.getUser());
+    }
+
     _logout() {
         let url = '/ajax/logout';
         var r = new Request(url, 'post');
@@ -12,13 +32,14 @@ class MainMenu extends React.Component{
 
             if(response.status == "ERROR") {
                 console.log('ERROR');
+            }else{
+                UserActions.getUser();
             }
         }).bind(this));
     }
 
     _loginFields() {
-        let user = document.getElementById('user').getAttribute('data-user');
-        if(!user) {
+        if(!this.state.user) {
             return(
                 <div>
                     <li className="nav-item">
@@ -33,7 +54,7 @@ class MainMenu extends React.Component{
         return(
             <div>
                 <li className="nav-item">
-                    <a href="#" className="nav-link">{(JSON.parse(user)).name}</a>
+                    <Link to={'/account/profile'} className="nav-link">{this.state.user.name}</Link>
                 </li>
                 <li className="nav-item">
                     <a href="#" className="nav-link" onClick={this._logout.bind(this)}>Выйти</a>

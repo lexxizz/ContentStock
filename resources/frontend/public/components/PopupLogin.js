@@ -1,6 +1,7 @@
 import React from 'react';
 import {Router, Route} from 'react-router';
 import Form from './Form';
+import UserActions from '../actions/User';
 
 class PopupLogin extends React.Component {
 
@@ -27,6 +28,7 @@ class PopupLogin extends React.Component {
 
     
     _response(response) {
+        UserActions.getUser();
         $('#login-modal').modal('hide');
     }
     

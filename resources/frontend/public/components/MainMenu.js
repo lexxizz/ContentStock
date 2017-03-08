@@ -38,28 +38,34 @@ class MainMenu extends React.Component{
         }).bind(this));
     }
 
-    _loginFields() {
-        if(!this.state.user) {
-            return(
-                <div>
-                    <li className="nav-item">
-                        <a href="#" className="nav-link" data-toggle="modal" data-target="#login-modal">Войти</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="#" className="nav-link" data-toggle="modal" data-target="#login-modal">Зарегистрироваться</a>
-                    </li>
-                </div>
+    _registerField() {
+        if (!this.state.user) {
+            return (
+                <li className="nav-item">
+                    <a href="#" className="nav-link" data-toggle="modal" data-target="#login-modal">Зарегистрироваться</a>
+                </li>
             )
         }
         return(
-            <div>
+            <li className="nav-item">
+                <a href="#" className="nav-link" onClick={this._logout.bind(this)}>Выйти</a>
+            </li>
+        )
+    }
+
+
+    _loginField() {
+        if(!this.state.user) {
+            return(
+                    <li className="nav-item">
+                        <a href="#" className="nav-link" data-toggle="modal" data-target="#login-modal">Войти</a>
+                    </li>
+            )
+        }
+        return(
                 <li className="nav-item">
                     <Link to={'/account/profile'} className="nav-link">{this.state.user.name}</Link>
                 </li>
-                <li className="nav-item">
-                    <a href="#" className="nav-link" onClick={this._logout.bind(this)}>Выйти</a>
-                </li>
-            </div>
         )
 
     }
@@ -79,7 +85,8 @@ class MainMenu extends React.Component{
                         <li className="nav-item">
                             <Link to={'/cart'} className="nav-link">Корзина</Link>
                         </li>
-                        {this._loginFields()}
+                        {this._loginField()}
+                        {this._registerField()}
                     </ul>
                 </nav>
                 <PopupLogin />

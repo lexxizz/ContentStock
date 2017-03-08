@@ -4,7 +4,10 @@ import Division from './Division';
 
 let __account_menu = [
     {"title": "Профиль", href: "/account/profile"},
-    {"title": "Покупки", href: "/account/purchases"}
+    {"title": "Покупки", href: "/account/purchases"},
+    {"title": "Управление контентом", href: "/account/content/management"},
+    {"title": "Счёт", href: "/account/bill"},
+    {"title": "Сообщения", href: "/account/messages"},
 ];
 
 class Account extends React.Component{

@@ -6,11 +6,13 @@ import GalleryPage from '../components/GalleryPage';
 import Account from '../components/Account';
 import AccountProfile from '../components/AccountProfile';
 import AccountPurchases from '../components/AccountPurchases';
+import Cart from '../components/Cart';
 
 export default (
     <Route component={Application}>
         <Route path="/" component={MainPage} />
         <Route path="/gallery" component={GalleryPage} />
+        <Route path="/cart" component={Cart} />
         <Route component={Account}>
             <Route path="/account/profile" component={AccountProfile} />
             <Route path="/account/purchases" component={AccountPurchases} />

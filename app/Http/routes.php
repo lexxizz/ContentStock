@@ -16,9 +16,12 @@
 //});
 //
 //Route::auth();
+Route::group(['prefix' => 'ajax'], function () {
+    Route::post('/login', 'UserController@login');
+    Route::post('/logout', 'UserController@logout');
+    Route::get('/user/get', 'UserController@getUser');
+});
 
-Route::get('/', 'HomeController@index');
 
-Route::post('/ajax/login', 'UserController@login');
-Route::post('/ajax/logout', 'UserController@logout');
-Route::get('/ajax/user/get', 'UserController@getUser');
+Route::any('{all}', 'HomeController@index')
+    ->where('all', '.*');

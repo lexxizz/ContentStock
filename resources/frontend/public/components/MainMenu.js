@@ -71,10 +71,13 @@ class MainMenu extends React.Component{
                 <nav className="navbar navbar-light">
                     <ul className="nav navbar-nav single-page-nav">
                         <li className="nav-item">
-                            <Link to={'/'} className="nav-link" href="#">Главная</Link>
+                            <Link to={'/'} className="nav-link">Главная</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={'/gallery'} className="nav-link" href="#">Галерея</Link>
+                            <Link to={'/gallery'} className="nav-link">Галерея</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to={'/cart'} className="nav-link">Корзина</Link>
                         </li>
                         {this._loginFields()}
                     </ul>
